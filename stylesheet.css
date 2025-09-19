@@ -1,0 +1,432 @@
+.main{
+    display: flex;
+}
+
+img{
+    display: block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* fieldsetの枠線を消す */
+fieldset {
+  border: none;
+  margin: 0;      /* 必要に応じて余白も調整 */
+  padding: 5;
+}
+
+.filter-btn {
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    align-items: center;
+    border-radius:80%;
+    position: relative;
+}
+
+.filter-btn.selected {
+    background-color: red;
+    color: white;
+    position: relative;
+    opacity: 100%;
+}
+
+.player-search{
+    width: 100%;
+}
+
+.buttonimg-a{
+    width: 24px;
+    height: 12px;
+    margin-top: 6px;
+}
+
+.buttonimg-b{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.buttonimg-c{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
+#series-filters {
+  gap: 10px;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+
+.series-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.series-btn.selected {
+  background-color: #4CAF50; /* 緑の枠などで選択状態を示す */
+}
+
+.series-btn img {
+  width: 40px;
+  height: 40px;
+  pointer-events: none; /* ボタンのクリックはimgではなくbuttonで受ける */
+}
+
+.player-list {
+    background-color: skyblue;
+    height: 700px;
+    width: 380px;
+    margin: 10px;
+    box-shadow: 0 0 10px gray;
+    justify-content: center;
+    overflow-y: auto; /* 縦方向にスクロール */
+    overflow-x: hidden; /* 横スクロールは隠す */
+}
+
+.search-window{
+    background-color: skyblue;
+    padding: 0.5em 0.5em 0;
+    position: relative;
+}
+
+#player-search {
+  width: 100%;
+  box-sizing: border-box; /* パディングやボーダー含めて幅100%に */
+  padding: 6px 8px; /* お好みで */
+  font-size: 1rem;
+}
+
+.team-header {
+    background-color: white;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid #aaa;
+    display: flex;
+    justify-content: space-between; /* 左右に分ける */
+    align-items: center;
+}
+
+.search-window.collapsed {
+  display: none;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  user-select: none;
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+
+.toggle-btn {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.team-name{
+    flex: 1;
+    text-align: left; /* 左寄せ */
+}
+
+.team-players {
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team-players.collapsed {
+    max-height: 0;
+    padding: 0;
+}
+
+.team-section {
+    width: 100%;
+}
+
+.player{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;}
+
+.player-card{
+    background-color: grey;
+    height: 92px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    border: 3px solid #000;
+    background-color: white;
+    position:relative;/*絶対値指定の親要素に必要*/}
+    .nickname{
+        height: 20px;
+        width: 100%;
+        background-color: white;
+        border-bottom: 3px solid;
+        font-size: 15px;}
+    .img{
+        height: 69px;
+        background-color: aquamarine;
+        display: flex;}
+        .icon{
+            width: 67px;
+            height: 69px;
+            background-color: gray;
+            position: relative;}
+            .sprite{
+                position: absolute;
+                bottom: 0;}
+        .info{
+            width: 30px;
+            height: 69px;
+            background-color: black;
+            border-left: 3px solid;}
+            .position{
+                border-bottom: 3px solid;}
+            .element{
+                border-bottom: 3px solid;}
+            .grade{
+                border-bottom: 3px solid;}
+
+.team{
+    height: 700px;
+    width: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;}
+
+.formation{
+    height: 100px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center}
+
+.formation-select{
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;}
+
+.field{
+    background-color: greenyellow;
+    height: 700px;
+    width: 800px;
+    margin: 10px;
+    border: 10px;
+    box-shadow: 0 0 10px gray;
+    position:relative;/*絶対値指定の親要素に必要*/}
+
+.goal1-1{
+    position:absolute;/*絶対位置指定*/
+    left:40%;/*横位置の指定*/
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:8.5%;/*線の高さ指定*/}
+.goal1-2{
+    position:absolute;/*絶対位置指定*/
+    left:60%;/*横位置の指定*/
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:8.5%;/*線の高さ指定*/}
+.goal1-3{
+    position:absolute;/*絶対位置指定*/
+    left:40%;/*横位置の指定*/
+    top:8%;
+    background:white;/*線の色指定*/
+    width:20.5%;/*線の幅指定*/
+    height:5px;/*線の高さ指定*/}
+.penalty1-1{
+    position:absolute;/*絶対位置指定*/
+    left:30%;/*横位置の指定*/
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:20.5%;/*線の高さ指定*/}
+.penalty1-2{
+    position:absolute;/*絶対位置指定*/
+    left:70%;/*横位置の指定*/
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:20.5%;/*線の高さ指定*/}
+.penalty1-3{
+    position:absolute;/*絶対位置指定*/
+    left:30%;/*横位置の指定*/
+    top:20%;
+    background:white;/*線の色指定*/
+    width:40.5%;/*線の幅指定*/
+    height:5px;/*線の高さ指定*/}
+.goal2-1{
+    position:absolute;/*絶対位置指定*/
+    left:40%;/*横位置の指定*/
+    top:92%;
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:8.5%;/*線の高さ指定*/}
+.goal2-2{
+    position:absolute;/*絶対位置指定*/
+    left:60%;/*横位置の指定*/
+    top:92%;
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:8.5%;/*線の高さ指定*/}
+.goal2-3{
+    position:absolute;/*絶対位置指定*/
+    left:40%;/*横位置の指定*/
+    top:92%;
+    background:white;/*線の色指定*/
+    width:20.5%;/*線の幅指定*/
+    height:5px;/*線の高さ指定*/}
+.penalty2-1{
+    position:absolute;/*絶対位置指定*/
+    left:30%;/*横位置の指定*/
+    top:80%;
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:20.5%;/*線の高さ指定*/}
+.penalty2-2{
+    position:absolute;/*絶対位置指定*/
+    left:70%;/*横位置の指定*/
+    top:80%;
+    background:white;/*線の色指定*/
+    width:5px;/*線の幅指定*/
+    height:20.5%;/*線の高さ指定*/}
+.penalty2-3{
+    position:absolute;/*絶対位置指定*/
+    left:30%;/*横位置の指定*/
+    top:80%;
+    background:white;/*線の色指定*/
+    width:40.5%;/*線の幅指定*/
+    height:5px;/*線の高さ指定*/}
+.center{
+    position:absolute;/*絶対位置指定*/
+    top:50%;
+    background:white;/*線の色指定*/
+    width:100%;/*線の幅指定*/
+    height:5px;/*線の高さ指定*/}
+.circle{
+    position:absolute;/*絶対位置指定*/
+    left:38%;/*横位置の指定*/
+    top:35%;
+	width: 25%;/*幅*/
+	height: 30%;/*高さ*/
+	border-radius: 50%;/*角丸*/
+    border: solid 5px white;}
+
+.starting-member1,.starting-member2,.starting-member3,.starting-member4,.starting-member5,.starting-member6,.starting-member7,.starting-member8,.starting-member9,.starting-member10,.starting-member11,.bench-member1,.bench-member2,.bench-member3,.bench-member4,.bench-member5{
+    position:absolute;/*絶対位置指定*/
+    width: 120px;
+    height: 120px;}
+
+.starting-member1{
+    left:42.75%;
+    bottom:0%;}
+.starting-member2{
+    left:8%;
+    bottom:30%;}
+.starting-member3{
+    left: 31%;
+    bottom:20%;}
+.starting-member4{
+    left: 54%;
+    bottom:20%;}
+.starting-member5{
+    left: 77%;
+    bottom:30%;}
+.starting-member6{
+    left: 8%;
+    bottom:60%;}
+.starting-member7{
+    left:31%;
+    bottom:50%;}
+.starting-member8{
+    left:54%;
+    bottom:50%;}
+.starting-member9{
+    left: 77%;
+    bottom:60%;}
+.starting-member10{
+    left: 31%;
+    bottom:80%;}
+.starting-member11{
+    left: 54%;
+    bottom:80%;}
+
+.bench{
+    background-color: grey;
+    height: 700px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    position:relative;/*絶対値指定の親要素に必要*/}
+
+.bench-member1,.bench-member2,.bench-member3,.bench-member4,.bench-member5{
+    left: 20%;}
+.bench-member1{
+    top: 2%;}
+.bench-member2{
+    top: 21%;}
+.bench-member3{
+    top: 40%;}
+.bench-member4{
+    top: 59%;}
+.bench-member5{
+    top: 78%;}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;}
+.image-wrapper img {
+  width: 120px;
+  display: block;
+  transition: opacity 0.3s;}
+.image-wrapper:hover img {
+  opacity: 0.5;}
+.delete-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  z-index: 10;}
+.image-wrapper:hover .delete-btn {
+  display: block;}
+.dropped-image {
+  width: 80px;
+  border-radius: 10px;}
