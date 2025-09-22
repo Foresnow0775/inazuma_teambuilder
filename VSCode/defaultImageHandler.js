@@ -1,7 +1,7 @@
 // defaultImageHandler.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  const defaultImageUrl = "TB用/99.png"; // ← ここにデフォルト画像のパスを指定
+  const defaultImageUrl = "TB用/99999.png"; // ← ここにデフォルト画像のパスを指定
 
   const dropZones = [
     ...Array.from({ length: 11 }, (_, i) => `starting-member${i + 1}`),
