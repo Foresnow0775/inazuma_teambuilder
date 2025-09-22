@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta charset="utf-8">
+    <title>イナズマイレブン チームビルダー</title>
+  </head>
+
+  <body>
+    <div class="title">
+        <h1 class="title">イナズマイレブン チームビルダー</h1>
+    </div>
+
+    <div class="main">
+        <div class="player-list">
+          <div class="search-container">
+            <div class="search-header" id="search-header">
+              <span>検索</span>
+              <button id="search-toggle-btn" class="toggle-btn">+</button>
+            </div>
+            <div class="search-window collapsed">
+              <input type="text" id="player-search" placeholder="選手名で検索">
+              <div id="filters">
+                <fieldset>
+                  <button type="button" class="filter-btn" data-filter-type="position" data-filter-value="GK">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/0_1_GK.PNG" alt="GK"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="position" data-filter-value="DF">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/0_2_DF.PNG" alt="DF"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="position" data-filter-value="MF">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/0_3_MF.PNG" alt="MF"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="position" data-filter-value="FW">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/0_4_FW.PNG" alt="FW"><br>
+                  </button>
+                </fieldset>
+                <fieldset>
+                  <button type="button" class="filter-btn" data-filter-type="element" data-filter-value="wind">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/1_6_wind.webp" alt="wind"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="element" data-filter-value="forest">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/1_7_forest.webp" alt="forest"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="element" data-filter-value="fire">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/1_8_fire.webp" alt="fire"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="element" data-filter-value="mountain">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/1_9_mountain.webp" alt="mountain"><br>
+                  </button>
+                </fieldset>
+                <fieldset>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="1st">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_1_1st.PNG" alt="1st"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="2nd">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_2_2nd.PNG" alt="2nd"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="3rd">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_3_3rd.PNG" alt="3rd"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="adult">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_4_adult.PNG" alt="adult"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="child">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_5_child.PNG" alt="child"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="grade" data-filter-value="unknown">
+                    <img class="buttonimg-a" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/2_6_unknown.PNG" alt="unknown"><br>
+                  </button>
+                </fieldset>
+                <fieldset>
+                  <button type="button" class="filter-btn" data-filter-type="gender" data-filter-value="male">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/3_4_male.webp" alt="male"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="gender" data-filter-value="female">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/3_5_female.webp" alt="female"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="gender" data-filter-value="unknown">
+                    <img class="buttonimg-b" src="https://foresnow0775.github.io/inazuma_teambuilder/images/information/3_6_unknown.webp" alt="unknown"><br>
+                  </button>              
+                </fieldset>
+                <fieldset>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="1">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/05マーク/01１.PNG" alt="1"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="2">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/05マーク/02２.PNG" alt="2"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="3">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/03ゲーム本編/03-1世界への挑戦.webp" alt="3"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="GO">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/04ＧＯ.webp" alt="GO"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="GO2">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/05クロノストーン.webp" alt="GO2"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="GOG">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/06ギャラクシー.webp" alt="GOG"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="Ares">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/07アレスの天秤.webp" alt="Ares"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="Orion">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/08オリオンの刻印.webp" alt="Orion"><br>
+                  </button>
+                  <button type="button" class="filter-btn" data-filter-type="series" data-filter-value="V">
+                    <img class="buttonimg-c" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/03ゲーム本編/08ヴィクトリーロード.webp" alt="V"><br>
+                  </button>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <div id="series-filters">
+            <button type="button" class="series-btn"  data-series="1">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/05マーク/01１.PNG" alt="1"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="2">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/05マーク/02２.PNG" alt="2"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="3">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/03ゲーム本編/03-1世界への挑戦.webp" alt="3"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="GO">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/04ＧＯ.webp" alt="GO"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="GO2">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/05クロノストーン.webp" alt="GO2"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="GOG">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/06ギャラクシー.webp" alt="GOG"><br>
+             </button>
+            <button type="button" class="series-btn"  data-series="Ares">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/07アレスの天秤.webp" alt="Ares"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="Orion">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/01テレビアニメ/08オリオンの刻印.webp" alt="Orion"><br>
+            </button>
+            <button type="button" class="series-btn"  data-series="V">
+              <img class="series-img" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/08ロゴ/03ゲーム本編/08ヴィクトリーロード.webp" alt="V"><br>
+            </button>
+          </div>
+
+          <div class="player">
+            <div class="team-section" data-series="1" alt="雷門">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/01_Endo-arc/01_Raimon.webp" alt="FF雷門" width="30px">
+                <div class="team-name">雷門</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position="GK" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">えんどう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">1</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/01_Mamoru Endo.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position="DF" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">かぜまる</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">2</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/02_Ichirota%20Kazemaru.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="DF" element="mountain" grade="1st" gender="male" series="1">
+                  <div class="nickname">かべやま</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">3</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/03_Heigoro%20Kabeyama.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="DF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">かげの</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">4</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/04_Jin%20Kageno.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="DF" element="fire" grade="1st" gender="male" series="1">
+                  <div class="nickname">くりまつ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">5</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/05_Teppei%20Kurimatsu.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="MF" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">はんだ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">6</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/06_Shinichi%20Handa.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="MF" element="forest" grade="1st" gender="male" series="1">
+                  <div class="nickname">しょうりん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">7</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/07_Ayumu%20Shorinji.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="MF" element="fire" grade="1st" gender="male" series="1">
+                  <div class="nickname">ししど</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">8</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/08_Sakichi%20Shishido%20.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="FW" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">マックス</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/09_Kusuke%20Matsuno.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">ごうえんじ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">10</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/10_Shuya Goenji.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="FW" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">そめおか</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/11_Ryugo Someoka.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="FW" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">めがね</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">12</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/12_Kakeru%20Megane.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="DF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">どもん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">13</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/13_Asuka%20Domon.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="MF" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">きどう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">14</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/14_Yuto%20Kido.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+
+                <div class="player-card" position ="MF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">いちのせ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">16</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_01_Raimon/16_Kazuya%20Ichinose.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="帝国学園">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/01_Endo-arc/02_Teikoku%20Gakuen.webp" alt="帝国学園" width="30px">
+                <div class="team-name">帝国学園</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="GK" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">げんおう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">1</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/01_Kojiro%20Genda.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="DF" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">だいでん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">2</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/02_Densuke%20Ono.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="DF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">ばんじょう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">3</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/03_Kazumichi%20Banjo.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="wind" grade="1st" gender="male" series="1">
+                  <div class="nickname">なるかみ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">4</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/04_Kenya%20Narukami.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="DF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">ごじょう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">5</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/05_Masaru%20Gojo.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">へんみ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">6</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/06_Wataru%20Henmi.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">さきやま</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">7</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/07_Shuji%20Sakiyama.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="wind" grade="1st" gender="male" series="1">
+                  <div class="nickname">どうめん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">8</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/08_Shuichiro%20Domen.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">じもん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/09_Daiki%20Jimon.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">きどう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">10</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/10_Yuto%20Kido.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">さくま</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/11_Jiro%20Sakuma.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="GK" element="forest" grade="3rd" gender="male" series="1">
+                  <div class="nickname">ひょうどう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">12</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/12_Yuhei_Hyodo.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">えな</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">13</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/13_Kazuki%20Ena.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="wind" grade="1st" gender="male" series="1">
+                  <div class="nickname">むくもと</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">14</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/14_Kei%20Mukumoto.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="MF" element="wind" grade="3rd" gender="male" series="1">
+                  <div class="nickname">しぶき</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">15</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/15_Shodai%20Shibuki.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">おおくす</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">16</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/16_Seiji%20Okusu.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="DF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">どもん</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">13</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/213_Asuka%20Domon.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="DF" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">えんどう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">15</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_02_Teikoku%20Gakuen/215_Mamoru%20Endo.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="傘美野">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/01_Endo-arc/1_04_Kasamino.webp" alt="傘美野" width="30px">
+                <div class="team-name">傘美野</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="1st" gender="male" series="1">
+                  <div class="nickname">でまえ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_03_Kasamino/09_Yo%20Demae.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="尾刈斗">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_04_Occult.webp" alt="尾刈斗" width="30px">
+                <div class="team-name">尾刈斗</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="forest" grade="1st" gender="male" series="1">
+                  <div class="nickname">ゆうこく</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_04_Occult/09_Hiroyuki_Yukoku.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="野生">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_05_Nose.webp" alt="尾刈斗" width="30px">
+                <div class="team-name">尾刈斗</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="MF" element="fire" grade="1st" gender="male" series="1">
+                  <div class="nickname">ニワトリ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">2</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_05_Nose/02_Ryota_Torii.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="御影専農">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_06_Mikage%20Sennou.webp" alt="御影専農" width="30px">
+                <div class="team-name">御影専農</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="GK" element="forest" grade="3rd" gender="male" series="1">
+                  <div class="nickname">たけし</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">1</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_06_Mikage%20Sennou/01_Takeshi_Sugimori.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">あらた</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_06_Mikage%20Sennou/11_Arata_Shimozuru.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="秋葉名戸学園">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_07_Shuuyou%20Meito%20Gakuen.webp" alt="秋葉名戸学園" width="30px">
+                <div class="team-name">秋葉名戸学園</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">まんが</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">10</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_07_Shuyou%20Meito%20Gakuen/10_Moe_Manga.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="戦国伊賀島">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_08_Sengoku%20Igajima.webp" alt="戦国伊賀島" width="30px">
+                <div class="team-name">戦国伊賀島</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">きりがくれ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_08_Sengoku%20Igajima/11_Saiji_Kirigakure.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="千羽山">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_09_Senbayama.webp" alt="千羽山" width="30px">
+                <div class="team-name">千羽山</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="DF" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">まきや</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">4</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_09_Senbayama/04_Hiroshi_Makiya.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="木戸川清修">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_10_Kidokawa%20Seishuu.webp" alt="木戸川清修" width="30px">
+                <div class="team-name">木戸川清修</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="DF" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">にしがき</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">2</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_10_Kidokawa%20Seishu/02_Mamoru%20Nishigaki.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="1">
+                  <div class="nickname">まさる</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_10_Kidokawa%20Seishu/09_Masaru_Mukata.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="wind" grade="2nd" gender="male" series="1">
+                  <div class="nickname">とも</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">10</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_10_Kidokawa%20Seishu/10_Tomo_Mukata.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+                <div class="player-card" position ="FW" element="mountain" grade="2nd" gender="male" series="1">
+                  <div class="nickname">つとむ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_10_Kidokawa%20Seishu/11_Tsutomu_Mukata.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="世宇子">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/01_Endo-arc/03_Zeus.webp" alt="世宇子" width="30px">
+                <div class="team-name">世宇子</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="MF" element="forest" grade="2nd" gender="male" series="1">
+                  <div class="nickname">アフロディ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">10</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_11_Zeus/10_Terumi_Afuro.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="稲妻KFC">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_12_Inazuma%20KFC.webp" alt="稲妻KFC" width="30px">
+                <div class="team-name">稲妻KFC</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="forest" grade="child" gender="female" series="1">
+                  <div class="nickname">まこ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">11</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_12_Inazuma%20KFC/11_Mako%20Kisaragi.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="一番街サリーズ">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/01_Endo-arc/1_13_Ichibangai_Sally's.webp" alt="一番街サリーズ" width="30px">
+                <div class="team-name">一番街サリーズ</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="wind" grade="adult" gender="female" series="1">
+                  <div class="nickname">サリー</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">9</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_13_Ichibangai%20Sally's/09_Sarina_Kisaragi.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="1" alt="雷門OB">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/06_SD/01_Endo-arc/1_14_Raimon%20OB.webp" alt="雷門OB" width="30px">
+                <div class="team-name">雷門OB</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="GK" element="mountain" grade="adult" gender="male" series="1">
+                  <div class="nickname">ひびき</div>
+                  <div class="img">
+                    <div class="icon">
+                      <div class="number">1</div>
+                      <img class="sprite" draggable="true" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/01_character-sprite/01_Endo-arc/1_14_Raimon%20OB/01_Seigo%20Hibiki.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="2" alt="ジェネシス">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/01_Endo-arc/04_The%20Genesis.webp" alt="ジェネシス" width="30px">
+                <div class="team-name">ジェネシス</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="2">
+                  <div class="nickname">グラン</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/01 無印/01キャラクター/212ザ・ジェネシス/11グラン.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="3"  alt="リトルギガント">
+              <div class="team-header">
+                <img class="emblem" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/99エンブレム/03/リトルギガント.webp" alt="リトルギガント" width="30px">
+                <div class="team-name">リトルギガント</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="GK" element="mountain" grade="2nd" gender="male" series="3">
+                  <div class="nickname">ロココ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/01 無印/01キャラクター/313リトルギガント/01ロココ・ウルパ.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="3"  alt="王牙学園">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/01_Endo-arc/05_Ogre.webp" alt="王牙学園" width="30px">
+                <div class="team-name">王牙学園</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="forest" grade="unknown" gender="male" series="3">
+                  <div class="nickname">バダップ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/01 無印/01キャラクター/321王牙学園/10バダップ・スリード.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="GO" alt="新生雷門">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/02_Tenma-arc/01_Shinsei%20Raimon.webp" alt="新生雷門" width="30px">
+                <div class="team-name">新生雷門</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="MF" element="wind" grade="1st" gender="male" series="GO">
+                  <div class="nickname">てんま</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/02 GO/01キャラクター/401 新生雷門/008松風 天馬.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="GO2" alt="プロトコル・オメガ２．０">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/02_Tenma-arc/02_Protocol%20Omega%202.0.webp" alt="プロトコル・オメガ２．０" width="30px">
+                <div class="team-name">プロトコル・オメガ２．０</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="wind" grade="unknown" gender="female" series="GO2">
+                  <div class="nickname">ベータ</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/02 GO/01キャラクター/502プロトコル・オメガ/210ベータ.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="GO2" alt="イナズマアナザージャパン">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/02_Tenma-arc/03_Inazuma%20Another%20Japan.webp" alt="イナズマアナザージャパン" width="30px">
+                <div class="team-name">イナズマアナザージャパン</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="wind" grade="2nd" gender="male" series="GO2">
+                  <div class="nickname">ゆきむら</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/02 GO/01キャラクター/512イナズマアナザージャパン/106雪村豹牙.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="GOG" alt="レジスタンスジャパン">
+              <div class="team-header">
+                <img class="emblem" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/02 GO/03エンブレム/03レジスタンスジャパン.webp" alt="レジスタンスジャパン" width="30px">
+                <div class="team-name">レジスタンスジャパン</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="wind" grade="1st" gender="male" series="GOG">
+                  <div class="nickname">はくりゅう</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/02 GO/01キャラクター/606レジスタンスジャパン/610白竜.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="Ares" alt="伊那国雷門">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/03_Asuto-arc/01_Inakuni%20Raimon.webp" alt="伊那国雷門" width="30px">
+                <div class="team-name">伊那国雷門</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="Ares">
+                  <div class="nickname">あすと</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/04アレス/01キャラクター/01伊那国雷門/10稲森明日人.webp" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="Ares" alt="星章学園">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/03_Asuto-arc/02_Seishou%20Gakuen.webp" alt="星章学園" width="30px">
+                <div class="team-name">星章学園</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="forest" grade="1st" gender="male" series="Ares">
+                  <div class="nickname">はいざき</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/04アレス/01キャラクター/02星章学園/11灰崎凌兵.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="Ares" alt="王帝月ノ宮">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/03_Asuto-arc/03_Outei%20Tsukinomiya.webp" alt="王帝月ノ宮" width="30px">
+                <div class="team-name">王帝月ノ宮</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="Ares">
+                  <div class="nickname">のさか</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/04アレス/01キャラクター/03王帝月ノ宮/10野坂悠馬.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="Orion" alt="戦神イナズマジャパン">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/03_Asuto-arc/04_Senshin%20Inazuma%20Japan.webp" alt="戦神イナズマジャパン" width="30px">
+                <div class="team-name">戦神イナズマジャパン</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="MF" element="wind" grade="1st" gender="male" series="Orion">
+                  <div class="nickname">いちほし</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/05オリオン/01キャラクター/00イナズマジャパン/013一星 光.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="V" alt="南雲原">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/04_Unmei-arc/01_Nagumohara.webp" alt="南雲原" width="30px">
+                <div class="team-name">南雲原</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="mountain" grade="2nd" gender="male" series="V">
+                  <div class="nickname">さくらざき</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/07 V/01キャラクター/01南雲原/011桜咲丈二.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="V" alt="王者雷門">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/04_Unmei-arc/02_Ouja Raimon.webp" alt="王者雷門" width="30px">
+                <div class="team-name">王者雷門</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="mountain" grade="1st" gender="male" series="V">
+                  <div class="nickname">ハル</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/07 V/01キャラクター/02王者雷門/010円堂ハル.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="team-section" data-series="V" alt="北陽学園">
+              <div class="team-header">
+                <img class="emblem" src="https://raw.githubusercontent.com/Foresnow0775/images/refs/heads/main/02_emblem/04_Unmei-arc/04_Unmei-arc/03_Hokuyou Gakuen.webp" alt="北陽学園" width="30px">
+                <div class="team-name">北陽学園</div>
+                <span class="toggle-btn">-</span>
+              </div>
+              <div class="team-players">
+                <div class="player-card" position ="FW" element="fire" grade="2nd" gender="male" series="V">
+                  <div class="nickname">そらみや</div>
+                  <div class="img">
+                    <div class="icon">
+                      <img class="sprite" draggable="true" src="/Users/omorikoki/Desktop/イナズマイレブン/07素材/07 V/01キャラクター/03北陽学園/011空宮征.png" height="69px">
+                    </div>
+                    <div class="info"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team">
+          <div class="formation">
+            <select class="formation-select">
+              <option>ベーシック</option>
+              <option>デスゾーン</option>
+              <option>ゴーストダンス</option>
+              <option>スーパー☆５</option>
+            </select>
+          </div>
+
+          <div class="toggle-container">
+            <div class="toggle-row">
+              <span>選手名表示</span>
+              <label class="switch">
+                <input type="checkbox" id="toggle-name" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <span>背番号表示</span>
+              <label class="switch">
+                <input type="checkbox" id="toggle-number" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="field">
+          <div class="goal1-1"></div>
+          <div class="goal1-2"></div>
+          <div class="goal1-3"></div>
+          <div class="penalty1-1"></div>
+          <div class="penalty1-2"></div>
+          <div class="penalty1-3"></div>
+          <div class="goal2-1"></div>
+          <div class="goal2-2"></div>
+          <div class="goal2-3"></div>
+          <div class="penalty2-1"></div>
+          <div class="penalty2-2"></div>
+          <div class="penalty2-3"></div>
+          <div class="center"></div>
+          <div class="circle"></div>
+          <div class="starting-member1"></div>
+          <div class="starting-member2"></div>
+          <div class="starting-member3"></div>
+          <div class="starting-member4"></div>
+          <div class="starting-member5"></div>
+          <div class="starting-member6"></div>
+          <div class="starting-member7"></div>
+          <div class="starting-member8"></div>
+          <div class="starting-member9"></div>
+          <div class="starting-member10"></div>
+          <div class="starting-member11"></div>
+        </div>
+
+        <div class="bench">
+          <div class="bench-member1"></div>
+          <div class="bench-member2"></div>
+          <div class="bench-member3"></div>
+          <div class="bench-member4"></div>
+          <div class="bench-member5"></div>
+        </div>
+
+    </div>
+    <script src="drag&drop.js"></script>
+    <script src="defaultImageHandler.js"></script>
+    <script src="search.js" defer></script>
+    <script src="search-ui.js" defer></script>
+    <script src="formation.js" defer></script>
+    <script src="infoimage.js" defer></script>
+    <script src="display.js" defer></script>
+  </body>
+
+</html>
