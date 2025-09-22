@@ -25,45 +25,42 @@ fieldset {
     text-align: center;
     align-items: center;
     border-radius:80%;
-    position: relative;
-}
+    position: relative;}
 
 .filter-btn.selected {
     background-color: red;
     color: white;
     position: relative;
-    opacity: 100%;
-}
+    opacity: 100%;}
 
 .player-search{
-    width: 100%;
-}
+    width: 100%;}
 
 .buttonimg-a{
     width: 24px;
     height: 12px;
-    margin-top: 6px;
-}
+    margin-top: 6px;}
 
 .buttonimg-b{
     width: 20px;
     height: 20px;
     margin-top: 2px;
-    margin-left: 2px;
-}
+    margin-left: 2px;}
 
 .buttonimg-c{
     width: 30px;
     height: 30px;
     margin-bottom: 2px;
-    margin-right: 5px;
-}
+    margin-right: 5px;}
 
 #series-filters {
-  gap: 10px;
+  display: flex;           /* 横並びにする */
+  gap: 10px;               /* ボタン間の間隔 */
   margin-bottom: 10px;
-  overflow-wrap: anywhere;
-}
+  overflow-x: auto;        /* 横スクロールを許可 */
+  overflow-y: hidden;      /* 縦方向は隠す */
+  padding-bottom: 5px;     /* スクロールバーの分の余白 */
+  white-space: nowrap;     /* 折り返さず横並びを維持 */}
 
 .series-btn {
     width: 50px;
@@ -71,18 +68,15 @@ fieldset {
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    overflow-wrap: anywhere;
-}
+    overflow-wrap: anywhere;}
 
 .series-btn.selected {
-  background-color: #4CAF50; /* 緑の枠などで選択状態を示す */
-}
+  background-color: #4CAF50; /* 緑の枠などで選択状態を示す */}
 
 .series-btn img {
   width: 40px;
   height: 40px;
-  pointer-events: none; /* ボタンのクリックはimgではなくbuttonで受ける */
-}
+  pointer-events: none; /* ボタンのクリックはimgではなくbuttonで受ける */}
 
 .player-list {
     background-color: skyblue;
@@ -92,21 +86,18 @@ fieldset {
     box-shadow: 0 0 10px gray;
     justify-content: center;
     overflow-y: auto; /* 縦方向にスクロール */
-    overflow-x: hidden; /* 横スクロールは隠す */
-}
+    overflow-x: hidden; /* 横スクロールは隠す */}
 
 .search-window{
     background-color: skyblue;
     padding: 0.5em 0.5em 0;
-    position: relative;
-}
+    position: relative;}
 
 #player-search {
   width: 100%;
   box-sizing: border-box; /* パディングやボーダー含めて幅100%に */
   padding: 6px 8px; /* お好みで */
-  font-size: 1rem;
-}
+  font-size: 1rem;}
 
 .team-header {
     background-color: white;
@@ -116,12 +107,10 @@ fieldset {
     border-bottom: 2px solid #aaa;
     display: flex;
     justify-content: space-between; /* 左右に分ける */
-    align-items: center;
-}
+    align-items: center;}
 
 .search-window.collapsed {
-  display: none;
-}
+  display: none;}
 
 .toggle-btn {
   cursor: pointer;
@@ -132,13 +121,14 @@ fieldset {
 }
 
 .search-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 8px;
-  background-color: #eee;
-  border-radius: 4px;
-  margin-bottom: 6px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-bottom: 6px;
 }
 
 
@@ -188,7 +178,8 @@ fieldset {
         width: 100%;
         background-color: white;
         border-bottom: 3px solid;
-        font-size: 15px;}
+        font-size: 15px;
+        font-weight: bold;}
     .img{
         height: 69px;
         background-color: aquamarine;
@@ -198,6 +189,15 @@ fieldset {
             height: 69px;
             background-color: gray;
             position: relative;}
+            .number {
+                position: absolute;
+                top: 1px;       /* 上から少し余白 */
+                left: 2px;      /* 左から少し余白 */
+                font-size: 12px; /* 小さく表示 */
+                font-weight: bold;
+                color: white;    /* 背景に合わせて白文字 */
+                text-shadow: 1px 1px 2px black; /* 見やすくする影 */
+                z-index: 10;     /* 画像の上に表示 */}
             .sprite{
                 position: absolute;
                 bottom: 0;}
@@ -206,12 +206,10 @@ fieldset {
             height: 69px;
             background-color: black;
             border-left: 3px solid;}
-            .position{
-                border-bottom: 3px solid;}
-            .element{
-                border-bottom: 3px solid;}
-            .grade{
-                border-bottom: 3px solid;}
+.player-card .info img {
+  width: 30px;
+  border-bottom: 3px solid;}
+
 
 .team{
     height: 700px;
@@ -219,7 +217,9 @@ fieldset {
     margin: 10px;
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;}
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;}
 
 .formation{
     height: 100px;
@@ -227,11 +227,59 @@ fieldset {
     display: flex;
     align-items: center;
     justify-content: center}
-
 .formation-select{
     background-color: white;
     border-radius: 5px;
-    padding: 5px;}
+    padding: 5px;
+    font-weight: bold;}
+
+.toggle-container {
+    display: flex;
+    flex-direction: column; /* ← 全体は縦並び */
+    gap: 10px; /* 上下の余白 */
+    font-size: 14px;
+    border-radius: 10px;}
+.toggle-row {
+  display: flex;
+  flex-direction: row; /* ← 各行は横並び */
+  align-items: center; /* 縦位置を揃える */
+  gap: 10px; /* 文字とスイッチの間隔 */}
+.toggle-row span {
+    font-weight: bold;
+    flex: 1;}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin: 10px;}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: 0.3s;}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 21px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;}
+input:checked + .slider {
+  background-color: #4CAF50;}
+input:checked + .slider::before {
+  transform: translateX(25px);}
 
 .field{
     background-color: greenyellow;
@@ -241,6 +289,11 @@ fieldset {
     border: 10px;
     box-shadow: 0 0 10px gray;
     position:relative;/*絶対値指定の親要素に必要*/}
+
+.drop-highlight {
+  outline: 3px dashed red;
+  border-radius: 10px;
+}
 
 .goal1-1{
     position:absolute;/*絶対位置指定*/
