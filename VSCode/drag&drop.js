@@ -1,10 +1,27 @@
+// ===== 最小修正版：移動＆入れ替え対応 + ハイライト追加 =====
+
+// グローバルで「配置済みの wrapper」を一時保持
+let __draggedWrapper = null;
+let __draggedSourceZone = "";
+
+// --- ドラッグ開始時 (from player list の sprite) ---
 document.querySelectorAll(".sprite").forEach(sprite => {
   sprite.addEventListener("dragstart", e => {
+    const card = sprite.closest(".player-card");
+    const name = card.querySelector(".nickname").textContent;
+    const number = card.querySelector(".number").textContent;
+
+    __draggedWrapper = null;
+    __draggedSourceZone = "";
+
     e.dataTransfer.setData("text/plain", sprite.src);
-    e.dataTransfer.setData("source-zone", ""); // 新規なので元ゾーンなし
+    e.dataTransfer.setData("player-name", name);
+    e.dataTransfer.setData("player-number", number);
+    e.dataTransfer.setData("source-zone", "");
   });
 });
 
+// --- ドロップゾーン ---
 const dropZones = [
   ...Array(11).fill(0).map((_, i) => `starting-member${i+1}`),
   ...Array(5).fill(0).map((_, i) => `bench-member${i+1}`)
@@ -14,78 +31,173 @@ dropZones.forEach(className => {
   const zone = document.querySelector(`.${className}`);
   if (!zone) return;
 
+  // --- ハイライト処理 ---
+  zone.addEventListener("dragenter", () => zone.classList.add("drop-highlight"));
+  zone.addEventListener("dragleave", () => zone.classList.remove("drop-highlight"));
+  zone.addEventListener("drop", () => zone.classList.remove("drop-highlight"));
+
   zone.addEventListener("dragover", e => e.preventDefault());
 
   zone.addEventListener("drop", e => {
     e.preventDefault();
+
     const imageUrl = e.dataTransfer.getData("text/plain");
-    const sourceZoneClass = e.dataTransfer.getData("source-zone");
+    const playerName = e.dataTransfer.getData("player-name");
+    const playerNumber = e.dataTransfer.getData("player-number");
+    const sourceZoneClassFromDT = e.dataTransfer.getData("source-zone");
 
-    if (sourceZoneClass === className) return; // 同じ場所なら何もしない
+    let sourceZoneClass = sourceZoneClassFromDT;
+    let sourceWrapper = null;
+    if (!sourceZoneClass && __draggedWrapper) {
+      sourceWrapper = __draggedWrapper;
+      sourceZoneClass = __draggedSourceZone || (sourceWrapper.parentElement ? sourceWrapper.parentElement.className : "");
+    } else if (sourceZoneClass) {
+      const maybeZone = document.querySelector(`.${sourceZoneClass}`);
+      sourceWrapper = maybeZone ? maybeZone.querySelector(".image-wrapper") : null;
+    }
 
-    // --- 1. 移動元と移動先を取得 ---
     const sourceZone = sourceZoneClass ? document.querySelector(`.${sourceZoneClass}`) : null;
     const targetZone = zone;
 
-    const sourceWrapper = sourceZone?.querySelector(".image-wrapper") || null;
-    const targetWrapper = targetZone.querySelector(".image-wrapper") || null;
-
-    // --- 2. 入れ替え用データを保存 ---
-    const targetImageUrl = targetWrapper ? targetWrapper.querySelector("img").src : null;
-
-    // --- 3. 移動先を更新 ---
-    if (targetWrapper) targetWrapper.remove(); // 先にいた人は一旦消す
-    addImageToZone(targetZone, imageUrl, className);
-
-    // --- 4. 元ゾーンが存在 & 先にいた人がいたら入れ替え ---
-    if (sourceZone && targetImageUrl) {
-      if (sourceWrapper) sourceWrapper.remove();
-      addImageToZone(sourceZone, targetImageUrl, sourceZoneClass);
-    } else if (sourceWrapper) {
-      // 先にいた人がいない場合は元ゾーンを空にするだけ
-      sourceWrapper.remove();
+    const targetWrapper = targetZone.querySelector(".image-wrapper");
+    let targetImageUrl = null, targetName = null, targetNumber = null;
+    if (targetWrapper) {
+      const imgEl = targetWrapper.querySelector("img");
+      const nameEl = targetWrapper.querySelector(".name-display");
+      const numEl = targetWrapper.querySelector(".number-display");
+      targetImageUrl = imgEl ? imgEl.src : null;
+      targetName = nameEl ? nameEl.textContent : "";
+      targetNumber = numEl ? numEl.textContent : "";
+      targetWrapper.remove();
     }
+
+    addImageToZone(targetZone, imageUrl, className, playerName, playerNumber);
+
+    if (sourceZone || sourceWrapper) {
+      if (sourceWrapper && sourceWrapper.parentElement) {
+        sourceWrapper.remove();
+      } else if (sourceZone) {
+        const sw = sourceZone.querySelector(".image-wrapper");
+        if (sw) sw.remove();
+      }
+
+      if (targetImageUrl) {
+        const destZone = sourceZone || (sourceWrapper ? sourceWrapper.parentElement : null);
+        const destZoneClass = sourceZoneClass || (destZone ? destZone.className : "");
+        if (destZone) {
+          addImageToZone(destZone, targetImageUrl, destZoneClass, targetName, targetNumber);
+        }
+      }
+    }
+
+    __draggedWrapper = null;
+    __draggedSourceZone = "";
   });
 });
 
-function addImageToZone(zone, imageUrl, zoneClassName) {
+// --- 配置関数 ---
+function addImageToZone(zone, imageUrl, zoneClassName, name, number) {
   const wrapper = document.createElement("div");
   wrapper.className = "image-wrapper";
   wrapper.style.position = "relative";
 
-  const newImage = document.createElement("img");
-  newImage.src = imageUrl;
-  newImage.draggable = true;
-  newImage.addEventListener("dragstart", e => {
+  const img = document.createElement("img");
+  img.src = imageUrl;
+  img.draggable = true;
+  img.className = "dropped-image";
+
+  img.addEventListener("dragstart", e => {
+    __draggedWrapper = wrapper;
+    __draggedSourceZone = zoneClassName || (wrapper.parentElement ? wrapper.parentElement.className : "");
+
     e.dataTransfer.setData("text/plain", imageUrl);
+    e.dataTransfer.setData("player-name", name);
+    e.dataTransfer.setData("player-number", number);
     e.dataTransfer.setData("source-zone", zoneClassName);
+  });
+
+  const nameDiv = document.createElement("div");
+  nameDiv.textContent = name;
+  nameDiv.className = "name-display";
+  Object.assign(nameDiv.style, {
+    position: "absolute",
+    bottom: "-20px",
+    width: "100%",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: "14px",
+    color: "black",
+  });
+
+  const numberDiv = document.createElement("div");
+  numberDiv.textContent = number;
+  numberDiv.className = "number-display";
+  Object.assign(numberDiv.style, {
+    position: "absolute",
+    top: "2px",
+    left: "2px",
+    fontWeight: "bold",
+    fontSize: "18px",
+    color: "black",
+    textShadow: "1px 1px 2px black",
+    cursor: "pointer"
+  });
+
+  numberDiv.addEventListener("click", e => {
+    e.stopPropagation();
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = numberDiv.textContent;
+    Object.assign(input.style, {
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      width: "30px",
+      fontSize: "16px",
+      fontWeight: "bold",
+      textAlign: "center",
+      zIndex: 20
+    });
+
+    numberDiv.parentElement.appendChild(input);
+    numberDiv.style.display = "none";
+    input.focus();
+
+    const save = () => {
+      numberDiv.textContent = input.value;
+      numberDiv.style.display = "block";
+      input.remove();
+    };
+
+    input.addEventListener("keydown", ev => {
+      if (ev.key === "Enter") save();
+    });
+    input.addEventListener("blur", save);
   });
 
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "×";
   deleteBtn.className = "delete-btn";
-  Object.assign(deleteBtn.style, {
-    position: "absolute",
-    top: "5px",
-    right: "5px",
-    backgroundColor: "rgba(255,0,0,0.8)",
-    color: "white",
-    border: "none",
-    borderRadius: "50%",
-    width: "25px",
-    height: "25px",
-    cursor: "pointer",
-    fontWeight: "bold",
-    fontSize: "18px",
-    lineHeight: "23px",
-    textAlign: "center"
-  });
   deleteBtn.addEventListener("click", e => {
     e.stopPropagation();
     wrapper.remove();
   });
 
-  wrapper.appendChild(newImage);
+  wrapper.appendChild(img);
+  wrapper.appendChild(nameDiv);
+  wrapper.appendChild(numberDiv);
   wrapper.appendChild(deleteBtn);
   zone.appendChild(wrapper);
 }
+
+// --- 表示切替 ---
+document.getElementById("toggle-name").addEventListener("change", e => {
+  document.querySelectorAll(".name-display").forEach(el => {
+    el.style.display = e.target.checked ? "block" : "none";
+  });
+});
+document.getElementById("toggle-number").addEventListener("change", e => {
+  document.querySelectorAll(".number-display").forEach(el => {
+    el.style.display = e.target.checked ? "block" : "none";
+  });
+});
