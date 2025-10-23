@@ -19,7 +19,7 @@ fieldset {
 .filter-btn {
     width: 40px;
     height: 30px;
-    background-color: white;
+    background-color: grey;
     cursor: pointer;
     user-select: none;
     text-align: center;
@@ -50,8 +50,10 @@ fieldset {
 .buttonimg-c{
     width: 30px;
     height: 30px;
-    margin-bottom: 2px;
-    margin-right: 5px;}
+    margin-top: 3px;
+    margin-left: -2px;
+
+}
 
 #series-filters {
   display: flex;           /* 横並びにする */
@@ -68,7 +70,11 @@ fieldset {
     border: 2px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    overflow-wrap: anywhere;}
+    overflow-wrap: anywhere;
+    background-color: gray;
+
+}
+    
 
 .series-btn.selected {
   background-color: #4CAF50; /* 緑の枠などで選択状態を示す */}
@@ -76,7 +82,9 @@ fieldset {
 .series-btn img {
   width: 40px;
   height: 40px;
-  pointer-events: none; /* ボタンのクリックはimgではなくbuttonで受ける */}
+  pointer-events: none; /* ボタンのクリックはimgではなくbuttonで受ける */
+    margin-top: 3px;
+    margin-left: -2px;}
 
 .player-list {
     background-color: skyblue;
