@@ -139,7 +139,7 @@ function addImageToZone(zone, imageUrl, zoneClassName, name, number) {
     fontWeight: "bold",
     fontSize: "18px",
     color: "black",
-    textShadow: "1px 1px 2px black",
+    textShadow: "2px 2px 2px white",
     cursor: "pointer"
   });
 
