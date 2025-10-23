@@ -396,7 +396,7 @@ input:checked + .slider::before {
     height: 120px;}
 
 .starting-member1{
-    left:42.75%;
+    left:42.5%;
     bottom:0%;}
 .starting-member2{
     left:8%;
