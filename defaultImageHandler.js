@@ -1,7 +1,7 @@
 // defaultImageHandler.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  const defaultImageUrl = "https://foresnow0775.github.io/inazuma_teambuilder/images/information/99999.png"; // ← ここにデフォルト画像のパスを指定
+  const defaultImageUrl = "https://foresnow0775.github.io/inazuma_teambuilder/images/99999.png"; // ← ここにデフォルト画像のパスを指定
 
   const dropZones = [
     ...Array.from({ length: 11 }, (_, i) => `starting-member${i + 1}`),
