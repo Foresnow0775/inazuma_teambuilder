@@ -13,7 +13,7 @@ document.querySelectorAll(".player-card").forEach(card => {
     "DF": "https://foresnow0775.github.io/inazuma_teambuilder/images/0_2_DF.PNG",
     "MF": "https://foresnow0775.github.io/inazuma_teambuilder/images/0_3_MF.PNG",
     "FW": "https://foresnow0775.github.io/inazuma_teambuilder/images/0_4_FW.PNG",
-    "FW": "https://foresnow0775.github.io/inazuma_teambuilder/images/0_5_unknown.PNG",
+    "unknown": "https://foresnow0775.github.io/inazuma_teambuilder/images/0_5_unknown.PNG",
   };
 
   const elementMap = {
